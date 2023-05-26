@@ -15,7 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="20p q1.c">
+    <ClCompile Include="20p Q1 4개최대.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="22p 실습1.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="33p Q8, Q9.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="42p 응용 피라미드.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
