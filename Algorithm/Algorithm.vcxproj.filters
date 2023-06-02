@@ -27,10 +27,19 @@
     <ClCompile Include="42p 응용 피라미드.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="75p 진수 변환기.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="진수 변환기.cpp">
+    <ClCompile Include="78p Q5역순정렬.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="80p 소수.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="105 선형 검색.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="123 이중 검색.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
