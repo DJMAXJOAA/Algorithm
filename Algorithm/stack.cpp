@@ -5,14 +5,14 @@ using namespace std;
 int Initialize(IntStack* s, int max)
 {
     s->max = max;
-    int* stack = new int[max];
+    char* stack = new char[max];
     s->stk = stack;
     s->ptr = 0;
 
     return 0;
 }
 
-int Push(IntStack* s, int x)
+int Push(IntStack* s, char x)
 {
     if (s->max <= s->ptr)
     {
@@ -20,35 +20,32 @@ int Push(IntStack* s, int x)
         return 0;
     }
     
-    *s->stk = x;
-    s->stk++;
-
-    s->ptr += 1;
+    s->stk[s->ptr] = x;
+    s->ptr++;
     return 1;
 }
 
-int Pop(IntStack* s, int* x)
+int Pop(IntStack* s, char* x)
 {
     if (s->ptr == 0)
     {
         cout << "스택이 비어있습니다." << endl;
         return 0;
     }
-    x = s->stk;
-    s->stk--;
+    *x = s->stk[s->ptr - 1];
     s->ptr--;
     
     return 1;
 }
 
-int Peek(const IntStack* s, int* x)
+int Peek(const IntStack* s, char* x)
 {
     if (s->ptr == 0)
     {
         cout << "스택이 비어있습니다." << endl;
         return 0;
     }
-    x = s->stk;
+    *x = s->stk[s->ptr - 1];
 
     return 1;
 }
@@ -56,34 +53,7 @@ int Peek(const IntStack* s, int* x)
 void Clear(IntStack* s)
 {
     s->ptr = 0;
-    s->stk = 0;
     cout << "스택을 비웠습니다." << endl;
-}
-
-int Search(const IntStack* s, int x)
-{
-    int* temp = s->stk;
-    for (int i = 0; i < s->ptr; i++)
-    {
-        if (*(temp - i - 1) == x)
-        {
-            cout << (s->ptr-i) << "번째 검색 완료" << endl;
-            return 1;
-        }
-    }
-    cout << "검색 값이 없습니다." << endl;
-    return 0;
-}
-
-void Print(const IntStack* s)
-{
-    int* temp = s->stk;
-    for (int i = s->ptr; i>0; i--)
-    {
-        /*cout << s->stk[i] << endl;*/
-        printf("%d ", *(temp - i) );
-    }
-    cout << "출력 완료" << endl;
 }
 
 int Size(const IntStack* s)
@@ -104,4 +74,13 @@ void Terminate(IntStack* s)
     }
     s->max = 0;
     s->ptr = 0;
+}
+
+void PrintStack(const IntStack* s)
+{
+    for (int i = 0; i < s->ptr; i++)
+    {
+        cout << s->stk[i];
+    }
+    printf("\n");
 }
