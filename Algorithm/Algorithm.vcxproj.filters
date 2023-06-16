@@ -72,6 +72,9 @@
     <ClCompile Include="체스 퀸8개.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="asdftest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stack.h">
