@@ -1,86 +1,104 @@
 #include "stack.h"
-
-using namespace std;
-
-int Initialize(IntStack* s, int max)
+int IntStack::Initialize(int max)
 {
-    s->max = max;
-    char* stack = new char[max];
-    s->stk = stack;
-    s->ptr = 0;
+	IntStack::max = max;
+	stk = new(std::nothrow) int[max];
+	ptr = 0;
 
-    return 0;
+	if (stk == NULL)
+		return -1;
+	else
+		return 0;
 }
 
-int Push(IntStack* s, char x)
+int IntStack::Push(int x)
 {
-    if (s->max <= s->ptr)
-    {
-        cout << "스택이 가득 찼습니다." << endl;
-        return 0;
-    }
-    
-    s->stk[s->ptr] = x;
-    s->ptr++;
-    return 1;
+	/*if (ptr < max)
+	{
+		ptr++;
+		stk = new int[ptr];
+		stk[ptr] = x;
+		return 0;
+	}
+	else
+		return -1;*/
+
+	if (ptr < max)
+	{
+		ptr++;
+		stk[ptr - 1] = x;
+		return 0;
+	}
+	else
+		return -1;
+
 }
 
-int Pop(IntStack* s, char* x)
+int IntStack::Pop(int* x)
 {
-    if (s->ptr == 0)
-    {
-        cout << "스택이 비어있습니다." << endl;
-        return 0;
-    }
-    *x = s->stk[s->ptr - 1];
-    s->ptr--;
-    
-    return 1;
+	/*if (ptr > 0)
+	{
+		ptr--;
+		int* temp = new int[ptr];
+		for (int i = 0; i < ptr; i++)
+		{
+			temp[i] = stk[i];
+		}
+
+		delete[] stk;
+		stk = temp;
+
+	}*/
+
+	if (ptr > 0)
+	{
+		stk[ptr - 1] = -1;
+		ptr--;
+
+	}
+	return 0;
 }
 
-int Peek(const IntStack* s, char* x)
+int IntStack::Peek(int* x)
 {
-    if (s->ptr == 0)
-    {
-        cout << "스택이 비어있습니다." << endl;
-        return 0;
-    }
-    *x = s->stk[s->ptr - 1];
-
-    return 1;
+	if (ptr > 0)
+	{
+		*x = stk[ptr - 1];
+		return 0;
+	}
+	else
+		return -1;
 }
 
-void Clear(IntStack* s)
+void IntStack::Clear()
 {
-    s->ptr = 0;
-    cout << "스택을 비웠습니다." << endl;
+	for (int i = 0; i < ptr; i++)
+	{
+		stk[ptr - 1] = -1;
+	}
+	ptr = 0;
 }
 
-int Size(const IntStack* s)
+int IntStack::Capacity()
 {
-    return s->ptr;
+	return max;
 }
 
-int Capacity(const IntStack* s)
+int IntStack::Size()
 {
-    return s->max;
+	return ptr;
 }
 
-void Terminate(IntStack* s)
+void IntStack::Print()
 {
-    if (s->stk != NULL)
-    {
-        delete[] s->stk;
-    }
-    s->max = 0;
-    s->ptr = 0;
+	for (int i = 0; i < ptr; i++)
+	{
+		std::cout << stk[i] << " ";
+	}
 }
 
-void PrintStack(const IntStack* s)
+void IntStack::Terminate()
 {
-    for (int i = 0; i < s->ptr; i++)
-    {
-        cout << s->stk[i];
-    }
-    printf("\n");
+	delete[] stk;
+	stk = nullptr;
 }

@@ -65,7 +65,6 @@ int main()
 				if (isdigit(calculate[i - 1]) == 0)
 				{
 					queue.Enque('~');
-					Push(&stack, ' ');
 					continue;
 				}
 				Push(&stack, calculate[i]);
