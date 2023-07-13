@@ -1,4 +1,5 @@
 #include <iostream>
+#include "StopWatch.h"
 
 using namespace std;
 
@@ -8,56 +9,55 @@ int main()
 {
 	int count = 0;
 
-	string str;
-	cin >> str;
-	string comp;
-	cin >> comp;
+	StopWatch check;
 
-	cout << endl;
-
-	for (int i = 0; i < str.size() - comp.size(); i++)
+	check.Start();
+	for (int x = 0; x < 1000; x++)
 	{
-		count++;
+		cout << x << endl;
 
-		
-
-		int j;
-		for ( j = 0; j < comp.size(); j++)
+		string str = { "trusthardtoothbrushes" };
+		string comp = { "tooth" };
+		for (int i = 0; i < str.size() - comp.size(); i++)
 		{
-			Print(str);
-			for (int k = 0; k < j+i; k++)
+			count++;
+
+			int j;
+			for (j = 0; j < comp.size(); j++)
 			{
-				cout << " ";
-			}
-			if (comp[j] != str[i + j])
-			{
-				cout << "|" << endl;
+				/*Print(str);*/
+				for (int k = 0; k < j + i; k++)
+				{
+				}
+				if (comp[j] != str[i + j])
+				{
+					cout << "|" << endl;
+					for (int k = 0; k < i; k++)
+					{
+						cout << " ";
+					}
+					/*Print(comp);*/
+					break;
+				}
+				//cout << "+" << endl;
 				for (int k = 0; k < i; k++)
 				{
-					cout << " ";
 				}
-				Print(comp);
+				/*Print(comp);*/
+			}
+
+			/*cout << "-----------------------------" << endl;*/
+
+			if (j == comp.size())
 				break;
-			}
-			cout << "+" << endl;
-			for (int k = 0; k < i; k++)
-			{
-				cout << " ";
-			}
-			Print(comp);
 		}
-		
-		cout << "-----------------------------" << endl;
-
-		if (j == comp.size())
-			break;
 	}
-
-	cout << str.size() - comp.size() - 1 << "회 비교 시도" << endl;
-	cout << count << "번째 일치";
+	check.Stop();
+	cout << check.getElapsedTime() << "ms";
+	//cout << str.size() - comp.size() - 1 << "회 비교 시도" << endl;
+	//cout << count << "번째 일치";
 	return 0;
 }
-
 
 void Print(string str)
 {

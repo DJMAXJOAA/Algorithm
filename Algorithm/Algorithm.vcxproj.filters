@@ -114,6 +114,15 @@
     <ClCompile Include="브루트포스.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="KMP법.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="보이어-무어.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="선형 리스트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stack.h">
