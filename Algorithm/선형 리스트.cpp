@@ -10,10 +10,14 @@ struct Student
 	Student* next;
 };
 
+void Add();
+void Delete();
+void PrintAll();
+
 class List
 {
 public:
-	List() { head = nullptr; current = nullptr; }
+	List() { head = nullptr; }
 	~List() {}
 	void Add(int no, string name);
 	void Delete(int no);
@@ -21,16 +25,13 @@ public:
 
 private:
 	Student* head;
-	Student* current;
 };
+
+// 전역 객체
+List list;
 
 int main()
 {
-	List list;
-
-	int no;
-	string name;
-
 	int input;
 	bool out = true;
 
@@ -41,19 +42,13 @@ int main()
 		switch (input)
 		{
 		case 1:
-			cout << "번호 입력 :";
-			cin >> no;
-			cout << "이름 입력 : ";
-			cin >> name;
-			list.Add(no, name);
+			Add();
 			break;
 		case 2:
-			cout << "번호 입력 : ";
-			cin >> no;
-			list.Delete(no);
+			Delete();
 			break;
 		case 3:
-			list.PrintAll();
+			PrintAll();
 			break;
 		default:
 			out = false;
@@ -66,26 +61,21 @@ int main()
 
 void List::Add(int no, string name)
 {
+	Student* temp = new Student;
+	temp->name = name;
+	temp->no = no;
+
 	// 요소 없을때
 	if (head == nullptr)
 	{
-		head = new Student;
-		head->name = name;
-		head->no = no;
-		head->next = nullptr;
-
-		current = head;
+		temp->next = nullptr;
+		head = temp;
 
 		return;
 	}
 
-	Student* temp = new Student;
-	temp->name = name;
-	temp->no = no;
-	temp->next = nullptr;
-
-	current->next = temp;
-	current = temp;
+	temp->next = head;
+	head = temp;
 
 	return;
 }
@@ -94,54 +84,92 @@ void List::Delete(int no)
 {
 	if (head == nullptr)
 	{
-		cout << "목록없" << endl;
+		cout << "목록없음" << endl;
 		return;
 	}
 
 	Student* temp = head;
 
-	if (temp->no == no) // 맨처음이면
+	if (temp->no == no) // 첫 요소
 	{
-		head = head->next;
+		head = temp->next;
+		temp->next = nullptr;
 		delete temp;
 
 		return;
 	}
 
+	Student* prev = temp;
+	temp = temp->next;
+
 	while (temp != nullptr)
 	{
-		if (temp->next->no)
+		if (temp->no == no)
 		{
-			if (temp->next->next == nullptr) // 찾은게 맨 마지막이면
+			if (temp->next == nullptr) // 맨 마지막 요소일때
 			{
-				delete temp->next;
+				prev->next = nullptr;
 				temp->next = nullptr;
-
-				return;
-			}
-			else
-			{
-				Student* temp2 = temp;
-				temp = temp->next;
-				temp2->next = temp->next;
-
 				delete temp;
 
 				return;
 			}
+			prev->next = temp->next; // 중간 요소일때
+			temp->next = nullptr;
+			delete temp;
+
+			return;
 		}
 
+		prev = temp;
 		temp = temp->next;
 	}
+
+	// 못찾음 (지울거없음)
+	cout << " 못찾음" << endl;
+	return;
 }
 
 void List::PrintAll()
 {
 	Student* temp = head;
+	if (temp == nullptr)
+	{
+		cout << "리스트에 학생들이 없습니다." << endl;
+		return;
+	}
+
 	while (temp != nullptr)
 	{
 		cout << temp->no << endl;
 		cout << temp->name << endl << endl;
 		temp = temp->next;
 	}
+}
+
+void Add()
+{
+	int no;
+	string name;
+
+	cout << "번호 입력 :";
+	cin >> no;
+	cout << "이름 입력 : ";
+	cin >> name;
+	list.Add(no, name);
+}
+
+void Delete()
+{
+	int no;
+
+	cout << "지울 번호 입력 : ";
+	cin >> no;
+	list.Delete(no);
+}
+
+void PrintAll()
+{
+	cout << "모든 요소를 출력합니다" << endl;
+	list.PrintAll();
 }
