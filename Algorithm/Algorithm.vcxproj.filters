@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\기능">
+      <UniqueIdentifier>{06993960-afe4-4ab8-be91-ca606a99ffb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="20p Q1 4개최대.c">
@@ -51,13 +54,7 @@
     <ClCompile Include="148 스택 구현.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="stack.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="151 큐.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="queue.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="재귀함수.cpp">
@@ -70,9 +67,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="체스 퀸8개.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="StopWatch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="asdftest.cpp">
@@ -121,6 +115,21 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="선형 리스트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="커서 링크드리스트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>소스 파일\기능</Filter>
+    </ClCompile>
+    <ClCompile Include="stack.cpp">
+      <Filter>소스 파일\기능</Filter>
+    </ClCompile>
+    <ClCompile Include="StopWatch.cpp">
+      <Filter>소스 파일\기능</Filter>
+    </ClCompile>
+    <ClCompile Include="더블 링크드리스트.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

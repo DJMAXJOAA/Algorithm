@@ -5,8 +5,8 @@
 using namespace std;
 const int arr_size = 9;
 
-void Heap_Sort(vector<int> &arr, int size, vector<int> &result);
-int Compare(vector<int> &arr, int size, int index);
+void Heap_Sort(vector<int> &arr, int now_size, vector<int> &result);
+int Compare(vector<int> &arr, int now_size, int index);
 void Swap(int& a, int& b);
 
 int main()
@@ -17,13 +17,13 @@ int main()
 	for (int i = 0; i < 1000; i++)
 	{
 		vector<int> arr = { 10, 9, 5, 8, 3, 2, 4, 6, 7, 1 };
-		const int arr_size = arr.size() - 1;
+		const int arr_size = arr.now_size() - 1;
 		vector<int> result;
 
 		Heap_Sort(arr, arr_size, result);
 
 		cout << endl;
-		for (int i = 0; i < result.size(); i++)
+		for (int i = 0; i < result.now_size(); i++)
 		{
 			cout << result[i] << " ";
 		}
@@ -36,46 +36,46 @@ int main()
 }
 
 
-void Heap_Sort(vector<int> &arr, int size, vector<int> &result)
+void Heap_Sort(vector<int> &arr, int now_size, vector<int> &result)
 {
-	if (size == 0)
+	if (now_size == 0)
 	{
 		result.push_back(arr[0]);
 		return;
 	}
 
-	Compare(arr, size, 0);
+	Compare(arr, now_size, 0);
 	if (arr[0] < arr[1])
 		Swap(arr[0], arr[1]);
 
 	result.push_back(arr[0]);
-	arr[0] = arr[size];
+	arr[0] = arr[now_size];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < now_size; i++)
 	{
 		cout << arr[i] << " ";
 	}
 	cout << endl;
 
-	for (int i = 0; i < result.size(); i++)
+	for (int i = 0; i < result.now_size(); i++)
 	{
 		cout << result[i] << " ";
 	}
 	cout << endl;
 
-	Heap_Sort(arr, size-1, result);
+	Heap_Sort(arr, now_size-1, result);
 }
 
-int Compare(vector<int> &arr, int size, int index)
+int Compare(vector<int> &arr, int now_size, int index)
 {
 	int a, b, c;
-	if (size >= index * 2 + 2)
-		b = Compare(arr, size, index * 2 + 2);
+	if (now_size >= index * 2 + 2)
+		b = Compare(arr, now_size, index * 2 + 2);
 	else
 		return index;
 
-	if (size >= index * 2 + 1)
-		a = Compare(arr, size, index * 2 + 1);
+	if (now_size >= index * 2 + 1)
+		a = Compare(arr, now_size, index * 2 + 1);
 	else
 		return index;
 

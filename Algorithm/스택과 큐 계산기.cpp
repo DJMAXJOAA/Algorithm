@@ -19,7 +19,7 @@ int main()
 	}
 	IntQueue queue(100);
 
-	for (int i = 0; i < calculate.size(); i++)
+	for (int i = 0; i < calculate.now_size(); i++)
 	{
 		/* 숫자일때 */
 		if (isdigit(calculate[i]) >= 1 || calculate[i] == '.')
@@ -151,7 +151,7 @@ int main()
 		else if (x == '-') temp2.push_back(cal(temp2, '-'));
 
 		cout << queue.Size() << "번째 : " << x << " : ";
-		for (int i = 0; i < temp2.size(); i++)
+		for (int i = 0; i < temp2.now_size(); i++)
 		{
 			cout << temp2[i] << ",";
 		}

@@ -7,17 +7,17 @@ using namespace std;
 
 int main()
 {
-	int size;
+	int now_size;
 	int search;
 
 
 	cout << "데이터 갯수 설정 :";
-	cin >> size;
+	cin >> now_size;
 
-	vector<int> data(size + 1);
+	vector<int> data(now_size + 1);
 
 	cout << "데이터 입력 :";
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < now_size; i++)
 	{
 		int temp;
 		cin >> temp;
@@ -28,7 +28,7 @@ int main()
 	cin >> search;
 
 
-	data[size] = search;
+	data[now_size] = search;
 
 	cout << "\t |";
 	for (int i = 0; i <= search; i++)
@@ -50,7 +50,7 @@ int main()
 		cout << "*" << endl;
 
 		cout << "\t" << i << "|";
-		for (int j = 0; j <= size; j++)
+		for (int j = 0; j <= now_size; j++)
 		{
 			cout << data[j] << " ";
 		}
@@ -59,7 +59,7 @@ int main()
 		if (data[i] == search)
 		{
 			cout << endl;
-			if (i == size)
+			if (i == now_size)
 			{
 				cout << "자료중에 " << search << "가 없습니다." << endl;
 			}

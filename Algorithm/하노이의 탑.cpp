@@ -17,7 +17,7 @@ int main()
 	}
 	
 	hanoi(n, 0, 2, s);
-	for (int i = 0; i < s[0].size(); i++)
+	for (int i = 0; i < s[0].now_size(); i++)
 	{
 		cout << s[0][i];
 	}
@@ -45,13 +45,13 @@ void print(int select, vector<int> s[])
 	for (int i = n - 1; i >= 0; i--)
 	{
 		cout << "[ ";
-		if (s[0].size() > i) cout << s[0][i];
+		if (s[0].now_size() > i) cout << s[0][i];
 		else cout << " ";
 		cout << " ] [ ";
-		if (s[1].size() > i) cout << s[1][i];
+		if (s[1].now_size() > i) cout << s[1][i];
 		else cout << " ";
 		cout << " ] [ ";
-		if (s[2].size() > i) cout << s[2][i];
+		if (s[2].now_size() > i) cout << s[2][i];
 		else cout << " ";
 		cout << " ]";
 

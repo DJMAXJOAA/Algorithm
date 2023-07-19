@@ -7,9 +7,9 @@ int main()
 {
 	string str = { "abababadababacabad" };
 	string pattern = { "ababacaba" };
-	vector<int> movement(pattern.size(), 0);
+	vector<int> movement(pattern.now_size(), 0);
 
-	for (int i = 0; i < pattern.size(); i++)
+	for (int i = 0; i < pattern.now_size(); i++)
 	{
 		if (pattern[0] == pattern[i])
 		{

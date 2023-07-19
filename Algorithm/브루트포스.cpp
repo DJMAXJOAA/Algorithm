@@ -18,12 +18,12 @@ int main()
 
 		string str = { "trusthardtoothbrushes" };
 		string comp = { "tooth" };
-		for (int i = 0; i < str.size() - comp.size(); i++)
+		for (int i = 0; i < str.now_size() - comp.now_size(); i++)
 		{
 			count++;
 
 			int j;
-			for (j = 0; j < comp.size(); j++)
+			for (j = 0; j < comp.now_size(); j++)
 			{
 				/*Print(str);*/
 				for (int k = 0; k < j + i; k++)
@@ -48,7 +48,7 @@ int main()
 
 			/*cout << "-----------------------------" << endl;*/
 
-			if (j == comp.size())
+			if (j == comp.now_size())
 				break;
 		}
 	}
@@ -61,7 +61,7 @@ int main()
 
 void Print(string str)
 {
-	for (int i = 0; i < str.size(); i++)
+	for (int i = 0; i < str.now_size(); i++)
 	{
 		cout << str[i];
 	}

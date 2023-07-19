@@ -37,7 +37,7 @@ int main()
 		{
 			arr2[arr[i]]++;
 		}
-		for (int i = 0; i < arr2.size(); i++)
+		for (int i = 0; i < arr2.now_size(); i++)
 		{
 			while (arr2[i] != 0)
 			{

@@ -32,8 +32,8 @@ void reverseDisplay(int value)
 void reverseDisplay(const string& s)
 {
 	x++;
-	cout << s[s.size()-x];
-	if (x == s.size())
+	cout << s[s.now_size()-x];
+	if (x == s.now_size())
 		return;
 	reverseDisplay(s);
 }

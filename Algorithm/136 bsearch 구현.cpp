@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void* bsearchx(const void* key, const void* base, size_t nmemb, size_t size, int(*compar)(const void*, const void*));
+void* bsearchx(const void* key, const void* base, size_t nmemb, size_t now_size, int(*compar)(const void*, const void*));
 int int_cmp(const int* a, const int* b);
 int linear_search(const int range, const int* arr);
 
@@ -64,7 +64,7 @@ int main()
 	return 0;
 }
 
-void* bsearchx(const void* key, const void* base, size_t nmemb, size_t size, int(*compar)(const void*, const void*))
+void* bsearchx(const void* key, const void* base, size_t nmemb, size_t now_size, int(*compar)(const void*, const void*))
 {
 	char* parr = (char*)base;
 	size_t first = 0;
@@ -74,7 +74,7 @@ void* bsearchx(const void* key, const void* base, size_t nmemb, size_t size, int
 	do
 	{
 		mid = (first + last) / 2;
-		result = compar(&parr[mid*size], key);
+		result = compar(&parr[mid*now_size], key);
 		if (result == 1)
 		{
 			last = mid;
@@ -85,7 +85,7 @@ void* bsearchx(const void* key, const void* base, size_t nmemb, size_t size, int
 		}
 	} while (result != 0);
 
-	return &parr[mid*size];
+	return &parr[mid*now_size];
 }
 
 int int_cmp(const int* a, const int* b)

@@ -4,29 +4,29 @@
 #include <cmath>
 using namespace std;
 
-void primal1(int size, int count);
-void primal2(int size, int count);
-void primal3(int size, int count);
-void primal4(int size, int count);
+void primal1(int now_size, int count);
+void primal2(int now_size, int count);
+void primal3(int now_size, int count);
+void primal4(int now_size, int count);
 
 int primal[1000] = { 0 };
 
 int main()
 {
-	int size = 1000;
+	int now_size = 1000;
 	int count = 0;
 	
-	primal1(size, count);
-	primal2(size, count);
-	primal3(size, count);
-	primal4(size, count);
+	primal1(now_size, count);
+	primal2(now_size, count);
+	primal3(now_size, count);
+	primal4(now_size, count);
 
 	return 0;
 }
 
-void primal1(int size, int count)
+void primal1(int now_size, int count)
 {
-	for (int i = 2; i <= size; i++)
+	for (int i = 2; i <= now_size; i++)
 	{
 		int j = 2;
 		for (j = 2; j < i; j++)
@@ -46,9 +46,9 @@ void primal1(int size, int count)
 	cout << "ÃÑ ³ª´°¼À È½¼ö : " << count << endl;
 }
 
-void primal2(int size, int count)
+void primal2(int now_size, int count)
 {
-	for (int i = 3; i <= size; i += 2)
+	for (int i = 3; i <= now_size; i += 2)
 	{
 		int j = 3;
 		for (j = 3; j < i; j += 2)
@@ -75,9 +75,9 @@ void primal2(int size, int count)
 	cout << "ÃÑ ³ª´°¼À È½¼ö : " << count << endl;
 }
 
-void primal3(int size, int count)
+void primal3(int now_size, int count)
 {
-	for (int i = 3; i <= size; i+=2)
+	for (int i = 3; i <= now_size; i+=2)
 	{
 		int j = 0;
 		for (j = 0; j <= sizeof(primal) / sizeof(primal[0]); j++)
@@ -100,10 +100,10 @@ void primal3(int size, int count)
 	cout << "ÃÑ ³ª´°¼À È½¼ö : " << count << endl;
 }
 
-void primal4(int size, int count)
+void primal4(int now_size, int count)
 {
-	double primal_range = sqrt(size);
-	for (int i = 3; i <= size; i += 2)
+	double primal_range = sqrt(now_size);
+	for (int i = 3; i <= now_size; i += 2)
 	{
 		int j = 0;
 		for (j = 0; j <= sizeof(primal) / sizeof(primal[0]); j++)

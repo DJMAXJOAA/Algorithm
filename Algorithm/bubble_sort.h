@@ -6,12 +6,12 @@ class Bubble_Sort
 private:
 	int* array;
 	bool* pass;
-	int size;
+	int now_size;
 	int swap_num;
 	int compare_num;
 public:
 	Bubble_Sort();
-	Bubble_Sort(int size);
+	Bubble_Sort(int now_size);
 	~Bubble_Sort();
 	void Print();
 	void Sort1();
@@ -22,12 +22,12 @@ public:
 };
 
 inline Bubble_Sort::Bubble_Sort()
-	:swap_num(0), compare_num(0), size(7)
+	:swap_num(0), compare_num(0), now_size(7)
 {
 	int temp[7] = { 1,3,9,4,8,8,6 };
-	array = new int[size];
-	pass = new bool[size];
-	for (int i = 0; i < size; i++)
+	array = new int[now_size];
+	pass = new bool[now_size];
+	for (int i = 0; i < now_size; i++)
 	{
 		array[i] = temp[i];
 		pass[i] = false;
@@ -35,15 +35,15 @@ inline Bubble_Sort::Bubble_Sort()
 	
 }
 
-Bubble_Sort::Bubble_Sort(int size)
+Bubble_Sort::Bubble_Sort(int now_size)
 	: swap_num(0), compare_num(0)
 {
 	int temp;
-	this->size = size;
-	array = new int[size];
-	pass = new bool[size];
+	this->now_size = now_size;
+	array = new int[now_size];
+	pass = new bool[now_size];
 	std::cout << "배열 값 입력";
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < now_size; i++)
 	{
 		std::cin >> temp;
 		array[i] = temp;
@@ -58,7 +58,7 @@ Bubble_Sort::~Bubble_Sort()
 
 inline void Bubble_Sort::Print()
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < now_size; i++)
 	{
 		std::cout << array[i] << " ";
 	}
@@ -69,10 +69,10 @@ inline void Bubble_Sort::Print()
 inline void Bubble_Sort::Sort1()
 {
 	//std::cout << "버전1 : \n";
-	for (int i = 0; i < size-1; i++)
+	for (int i = 0; i < now_size-1; i++)
 	{
 		//std::cout << i+1 << "번째\n";
-		for (int j = size-1; j > i; j--)
+		for (int j = now_size-1; j > i; j--)
 		{
 			Print();
 			compare_num++;
@@ -88,11 +88,11 @@ inline void Bubble_Sort::Sort1()
 inline void Bubble_Sort::Sort2()
 {
 	/*std::cout << "버전2 : \n";*/
-	for (int i = 0; i < size - 1; i++)
+	for (int i = 0; i < now_size - 1; i++)
 	{
-		int temp = size-1-i;
+		int temp = now_size-1-i;
 		//std::cout << i + 1 << "번째\n";
-		for (int j = size - 1; j > i; j--)
+		for (int j = now_size - 1; j > i; j--)
 		{
 			Print();
 			
@@ -114,11 +114,11 @@ inline void Bubble_Sort::Sort3()
 {
 	/*std::cout << "버전3 : \n";*/
 	int i;
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < now_size - 1; i++)
 	{
-		int temp = size - 1 - i;
+		int temp = now_size - 1 - i;
 		/*std::cout << i + 1 << "번째\n";*/
-		for (int j = size - 1; j > i; j--)
+		for (int j = now_size - 1; j > i; j--)
 		{
 			Print();
 
@@ -131,7 +131,7 @@ inline void Bubble_Sort::Sort3()
 			else
 				temp--;
 		}
-		for (int x = i; x < size-1; x++)
+		for (int x = i; x < now_size-1; x++)
 		{
 			if (array[x] > array[x + 1])
 			{

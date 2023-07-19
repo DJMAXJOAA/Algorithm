@@ -8,21 +8,21 @@ void swap(int *a, int *b);
 
 int main()
 {
-	const int size = 6;
-	int arr[size];
+	const int now_size = 6;
+	int arr[now_size];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < now_size; i++)
 	{
 		cin >> arr[i];
 	}
 
-	for (int i = 0; i < size/2; i++)
+	for (int i = 0; i < now_size/2; i++)
 	{
 		cout << endl;
-		swap(&arr[i], &arr[size - i - 1]);
+		swap(&arr[i], &arr[now_size - i - 1]);
 		cout << "arr[" << i << "]와" << "arr[" <<
-			size - i - 1 << "]를 교환합니다." << endl;
-		for (int i = 0; i < size; i++)
+			now_size - i - 1 << "]를 교환합니다." << endl;
+		for (int i = 0; i < now_size; i++)
 		{
 			cout << arr[i] << " ";
 		}

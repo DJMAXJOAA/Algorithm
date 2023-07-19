@@ -16,13 +16,13 @@ int main()
 	{
 		vector<int> arr = { 10, 9, 5, 8, 3, 2, 4, 6, 7, 1 };
 
-		for (int i = 0; i < arr.size(); i++)
+		for (int i = 0; i < arr.now_size(); i++)
 			cout << arr[i] << " ";
 		cout << endl;
 
-		MergeSort(arr, 0, arr.size() - 1);
+		MergeSort(arr, 0, arr.now_size() - 1);
 
-		for (int i = 0; i < arr.size(); i++)
+		for (int i = 0; i < arr.now_size(); i++)
 			cout << arr[i] << " ";
 		cout << endl;
 	}
@@ -70,9 +70,9 @@ void Merge(vector<int> &arr, int front, int mid, int rear)
 	// º´ÇÕ
 	while (1)
 	{
-		if (temp1size >= temp1.size())
+		if (temp1size >= temp1.now_size())
 		{
-			for (int j = temp2size; j < temp2.size(); j++)
+			for (int j = temp2size; j < temp2.now_size(); j++)
 			{
 				arr[i] = temp2[temp2size];
 				temp2size++;
@@ -80,9 +80,9 @@ void Merge(vector<int> &arr, int front, int mid, int rear)
 			}
 			break;
 		}
-		if (temp2size >= temp2.size())
+		if (temp2size >= temp2.now_size())
 		{
-			for (int j = temp1size; j < temp1.size(); j++)
+			for (int j = temp1size; j < temp1.now_size(); j++)
 			{
 				arr[i] = temp1[temp1size];
 				temp1size++;

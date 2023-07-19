@@ -29,17 +29,17 @@ int main()
 
 void PatternTable(string pattern, vector<int>& x)
 {
-	for (int i = 0; i < pattern.size() - 1; i++)
+	for (int i = 0; i < pattern.now_size() - 1; i++)
 	{
-		x.push_back(pattern.size() - i - 2);
+		x.push_back(pattern.now_size() - i - 2);
 	}
-	x.push_back(pattern.size() - 1);
+	x.push_back(pattern.now_size() - 1);
 }
 
 void BoyerMoore(string str, string pattern, vector<int>& pattern_index)
 {
-	int rear = pattern.size() - 1;
-	for (int i = 0; i < str.size() - pattern.size(); i++)
+	int rear = pattern.now_size() - 1;
+	for (int i = 0; i < str.now_size() - pattern.now_size(); i++)
 	{
 		cout << endl;
 		int j;
