@@ -8,7 +8,7 @@ struct Node
 	int free_next;
 };
 
-class List
+class Tree
 {
 private:
 	Node* node_list;
@@ -27,13 +27,13 @@ public:
 	void FreeDelete(int n);
 
 public:
-	List();
-	~List();
+	Tree();
+	~Tree();
 };
 
 int main()
 {
-	List list;
+	Tree list;
 
 	int select;
 
@@ -57,7 +57,7 @@ int main()
 	return 0;
 }
 
-List::List()
+Tree::Tree()
 	: max_size(6)
 	, now_size(6)
 	, head(0)
@@ -81,12 +81,12 @@ List::List()
 	last_index = max_size - 1;
 }
 
-List::~List()
+Tree::~Tree()
 {
 	delete node_list;
 }
 
-void List::Insert(int n)
+void Tree::Insert(int n)
 {
 	// 1. 배열의 크기가 다차면
 	if (now_size == max_size)
@@ -107,7 +107,7 @@ void List::Insert(int n)
 	FreeDelete(free_head);
 }
 
-void List::Delete(int n)
+void Tree::Delete(int n)
 {
 	int index = Search(n);
 	// 1. 검색 실패
@@ -124,7 +124,7 @@ void List::Delete(int n)
 	FreeInsert(index);
 }
 
-int List::Search(int n)
+int Tree::Search(int n)
 {
 	int index = head;
 
@@ -168,7 +168,7 @@ int List::Search(int n)
 }
 
 // 리스트에서 빠져서 -> 프리리스트에 추가되는거
-void List::FreeInsert(int n)
+void Tree::FreeInsert(int n)
 {
 	// 1. 프리리스트 헤드가 없을 때 추가
 	if (free_head == -1)
@@ -188,7 +188,7 @@ void List::FreeInsert(int n)
 }
 
 // 프리리스트에서 빠져서 -> 리스트에 추가되는거
-void List::FreeDelete(int n)
+void Tree::FreeDelete(int n)
 {
 	// 1. 프리리스트 지워버리면 요소 안남음
 	if (node_list[free_head].free_next == -1)
@@ -202,7 +202,7 @@ void List::FreeDelete(int n)
 
 
 
-void List::PrintAll()
+void Tree::PrintAll()
 {
 	int index = head;
 	while (node_list[index].next != -1)

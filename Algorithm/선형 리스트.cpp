@@ -14,11 +14,11 @@ void Add();
 void Delete();
 void PrintAll();
 
-class List
+class Tree
 {
 public:
-	List() { head = nullptr; }
-	~List() {}
+	Tree() { head = nullptr; }
+	~Tree() {}
 	void Add(int no, string name);
 	void Delete(int no);
 	void PrintAll();
@@ -28,7 +28,7 @@ private:
 };
 
 // Àü¿ª °´Ã¼
-List list;
+Tree list;
 
 int main()
 {
@@ -59,7 +59,7 @@ int main()
 	return 0;
 }
 
-void List::Add(int no, string name)
+void Tree::Add(int no, string name)
 {
 	Student* temp = new Student;
 	temp->name = name;
@@ -80,7 +80,7 @@ void List::Add(int no, string name)
 	return;
 }
 
-void List::Delete(int no)
+void Tree::Delete(int no)
 {
 	if (head == nullptr)
 	{
@@ -130,7 +130,7 @@ void List::Delete(int no)
 	return;
 }
 
-void List::PrintAll()
+void Tree::PrintAll()
 {
 	Student* temp = head;
 	if (temp == nullptr)

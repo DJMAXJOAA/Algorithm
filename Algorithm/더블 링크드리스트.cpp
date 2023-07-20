@@ -14,7 +14,7 @@ struct Node
 	Node() : next(nullptr), prev(nullptr) {}
 };
 
-class List
+class Tree
 {
 private:
 	Node* head;
@@ -130,13 +130,13 @@ public:
 	}
 
 public:
-	List() : head(nullptr), tail(nullptr) {}
-	~List() {}
+	Tree() : head(nullptr), tail(nullptr) {}
+	~Tree() {}
 };
 
 int main()
 {
-	List list;
+	Tree list;
 	int select;
 	int data;
 
