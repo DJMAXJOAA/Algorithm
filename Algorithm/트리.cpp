@@ -171,8 +171,8 @@ void Tree::PrintAll(Node* pt)
 	if (pt == nullptr)
 		return;
 	PrintAll(pt->left);
-	PrintAll(pt->right);
 	cout << pt->data << " / ";
+	PrintAll(pt->right);
 }
 
 int main()
