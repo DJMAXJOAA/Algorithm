@@ -138,6 +138,9 @@
     <ClCompile Include="해시법.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="클론그래프.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stack.h">
